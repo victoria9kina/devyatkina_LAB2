@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -16,26 +17,25 @@ private:
 public:
 	pipe();
 
-	static pipe addPipe(); //не к конкретной трубе
-	static void resetMaxID();
+	static pipe add_pipe();
+	static void reset_maxID();
 
 	friend std::ostream& operator << (std::ostream& out, const pipe& p);
 	friend std::istream& operator >> (std::istream& in, pipe& p);
 	friend std::ofstream& operator << (std::ofstream& fout, const pipe& p);
 	friend std::ifstream& operator >> (std::ifstream& fin, pipe& p);
 
-	void editPipe();
-	int getID()
+	void edit_pipe();
+	int get_ID()
 	{
 		return ID;
 	}
-	std::string getName()
+	std::string get_name()
 	{
 		return name;
 	}
-	bool getInRepair()
+	bool get_inrepair()
 	{
 		return in_repair;
 	}
 };
-

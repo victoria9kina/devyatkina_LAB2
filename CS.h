@@ -16,28 +16,27 @@ private:
 public:
 	CS();
 
-	static CS addCS();
-	static void resetMaxID();
+	static CS add_CS();
+	static void reset_maxID();
 
 	friend std::ostream& operator << (std::ostream& out, const CS& cs);
 	friend std::istream& operator >> (std::istream& in, CS& cs);
 	friend std::ofstream& operator << (std::ofstream& fout, const CS& cs);
 	friend std::ifstream& operator >> (std::ifstream& fin, CS& cs);
 
-	bool runWS();
-	bool stopWS();
+	bool run_WS();
+	bool stop_WS();
 
-	int getID()
+	int get_ID()
 	{
 		return ID;
 	}
-	std::string getName()
+	std::string get_name()
 	{
 		return name;
 	}
-	double getPercentWsInUse()
+	double get_ws_in_use()
 	{
 		return (double)ws_work / ws * 100;
 	}
 };
-

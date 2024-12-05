@@ -11,7 +11,7 @@ CS::CS()
 	ws_work = 0;
 };
 
-ostream& operator << (ostream& out, const CS& cs) // output for CS
+ostream& operator << (ostream& out, const CS& cs)
 {
 	cout << "CS ID = " << cs.ID << endl;
 	out << "name: " << cs.name << endl
@@ -22,22 +22,22 @@ ostream& operator << (ostream& out, const CS& cs) // output for CS
 	return out;
 }
 
-istream& operator >> (istream& in, CS& cs) // intput for CS // как тут сделать проверку? -> сделали 
+istream& operator >> (istream& in, CS& cs)
 {
 	cout << "CS ID = " << cs.ID << endl;
 	cout << "name (str): ";
-	cs.name = inputString(in);
+	cs.name = input_string(in);
 	cout << "ws (int) = ";
-	cs.ws = getPositiveNumber<int>(in);
+	cs.ws = get_positive_number<int>(in);
 	cout << "ws in work (int) = ";
-	cs.ws_work = getCorrectNumber<int>(0, cs.ws, true, in);
+	cs.ws_work = get_correct_number<int>(0, cs.ws, true, in);
 	cout << "eff (double) = ";
-	cs.eff = getPositiveNumber<double>(in);
+	cs.eff = get_positive_number<double>(in);
 
 	return in;
 }
 
-ofstream& operator << (ofstream& fout, const CS& cs) // output for CS
+ofstream& operator << (ofstream& fout, const CS& cs)
 {
 	fout << cs.ID << endl
 		<< cs.name << endl
@@ -59,19 +59,19 @@ ifstream& operator >> (ifstream& fin, CS& cs)
 	return fin;
 }
 
-CS CS::addCS() // add new CS
+CS CS::add_CS() // add new CS
 {
 	CS cs;
 	cin >> cs;
 	return cs;
 }
 
-void CS::resetMaxID()
+void CS::reset_maxID()
 {
 	MaxID = 0;
 }
 
-bool CS::runWS() // change number of ws in in_repair for cs
+bool CS::run_WS() // change number of ws in in_repair for cs
 {
 	if (ws_work < ws)
 	{
@@ -82,7 +82,7 @@ bool CS::runWS() // change number of ws in in_repair for cs
 		return 0;
 }
 
-bool CS::stopWS() // change number of ws in in_repair for cs
+bool CS::stop_WS() // change number of ws in in_repair for cs
 {
 	if (ws_work > 0)
 	{

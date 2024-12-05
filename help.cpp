@@ -1,24 +1,17 @@
 #include "help.h"
 using namespace std;
 
-string inputString(istream& in) // string input for whole line
-//string inputString(istream& in, const string& exeption)
+string input_string(istream& in)
 {
 	string str;
 	getline(in >> ws, str);
-	/*if (exeption != "")
-		while (str == exeption)
-		{
-			cout << "ERROR wrong name " << exeption << " --> try again: ";
-			cerr << str << endl;
-			getline(in >> ws, str);
-		}*/
-	cerr << str << endl; // LOGGING!!!!!!!
+
+	cerr << str << endl;
 	return str;
 }
 
 template <typename T> // template to check different types of variables
-T inputNumber(istream& in) // check type
+T input_number(istream& in) // check type
 {
 	T x;
 	while ((in >> x).fail()	// check type
@@ -27,40 +20,40 @@ T inputNumber(istream& in) // check type
 		in.clear();
 		in.ignore(10000, '\n');
 		cout << "ERROR wrong type --> try again: ";
-		cerr << x << endl; // LOGGING!!!!!!!
+		cerr << x << endl;
 	}
-	cerr << x << endl; // LOGGING!!!!!!!
+	cerr << x << endl;
 	return x;
 }
-template int inputNumber(istream& in);
-template double inputNumber(istream& in);
+template int input_number(istream& in);
+template double input_number(istream& in);
 
 template <typename T = int>
-T getCorrectNumber(T a, T b, bool included, istream& in) // check that number is in range(a,b)
+T get_correct_number(T a, T b, bool included, istream& in) // check that number is in range(a,b)
 {
-	T x = inputNumber<T>(in);
+	T x = input_number<T>(in);
 	while ((included && (x<a || x>b))
 		|| (!included && (x <= a || x >= b)))
 	{
 		string str_included = included ? "= " : " ";
 		cout << "ERROR wrong number: min >" << str_included << a << " and max <" << str_included << b << " --> try again: ";
-		x = inputNumber<T>(in);
+		x = input_number<T>(in);
 	}
 	return x;
 }
-template int getCorrectNumber<int>(int a, int b, bool included, istream& in);
-template double getCorrectNumber<double>(double a, double b, bool included, istream& in);
+template int get_correct_number<int>(int a, int b, bool included, istream& in);
+template double get_correct_number<double>(double a, double b, bool included, istream& in);
 
-template <typename T> // как проверить красиво на полож число??? --> никак, сделали через флаг	
-T getPositiveNumber(istream& in)
+template <typename T>
+T get_positive_number(istream& in)
 {
-	return getCorrectNumber<T>(0, std::numeric_limits<T>::max(), false, in);
+	return get_correct_number<T>(0, std::numeric_limits<T>::max(), false, in);
 }
-template int getPositiveNumber(istream& in);
-template double getPositiveNumber(istream& in);
+template int get_positive_number(istream& in);
+template double get_positive_number(istream& in);
 
 bool confirm(string message)
 {
 	cout << message << "\n0.no\n1.yes" << endl;
-	return getCorrectNumber(0, 1);
+	return get_correct_number(0, 1);
 }

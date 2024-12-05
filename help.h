@@ -1,4 +1,5 @@
 #pragma once
+#pragma once
 #include <unordered_map>
 #include <unordered_set>
 #include <iostream>
@@ -8,21 +9,20 @@
 #include <chrono>
 #include <format>
 
-std::string inputString(std::istream& in = std::cin);
-//std::string inputString(std::istream& in, const std::string& exeption = "");
+std::string input_string(std::istream& in = std::cin);
 
 template <typename T>
-T inputNumber(std::istream& in = std::cin);
+T input_number(std::istream& in = std::cin);
 
 template <typename T>
-T getCorrectNumber(T a, T b, bool included = true, std::istream& in = std::cin);
+T get_correct_number(T a, T b, bool included = true, std::istream& in = std::cin);
 
 template <typename T>
-T getPositiveNumber(std::istream& in = std::cin);
+T get_positive_number(std::istream& in = std::cin);
 
 bool confirm(std::string);
 
-// класс 
+
 class redirect_output_wrapper
 {
 	std::ostream& stream;
