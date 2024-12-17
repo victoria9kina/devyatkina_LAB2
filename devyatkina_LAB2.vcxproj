@@ -185,12 +185,15 @@
   <ItemGroup>
     <ClCompile Include="CS.cpp" />
     <ClCompile Include="help.cpp" />
+    <ClCompile Include="lab3\oil_business\source_files\main.cpp" />
+    <ClCompile Include="lab3\oil_business\source_files\pipe.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="pipe.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CS.h" />
     <ClInclude Include="help.h" />
+    <ClInclude Include="lab3\oil_business\header_files\menu.h" />
     <ClInclude Include="pipe.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
